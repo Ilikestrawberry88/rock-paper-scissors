@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Kalnia:wght@300&family=Rubik+Doodle+Shadow&display=swap');
+* {
+    line-height: 0.5cm;
+    font-family: "Rubik Doodle Shadow", sans-serif;
+    border-collapse: collapse;
+}
+
+h2 {
+    text-align: center;
+}
+
+body {
+    background-color: #EDFCF9;
+    font-size: 20px;
+    color: #2B2D2D;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container.button {
+    justify-content: space-around;
+    border: 2px solid #092F1D;
+    width: 500px;
+    height: 100px;
+}
+
+p#rule {
+    color: #092F1D;
+    text-align: center;  
+}
+
+/* button styles */
+.playerChoice {
+    border-radius: 15px;
+    background-color: #EDFCF9;
+    width: 70px;
+    height: 70px;
+    border-color: #2B2D2D;
+    font-size: 40px;
+}
