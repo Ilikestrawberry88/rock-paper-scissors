@@ -1,3 +1,5 @@
+
+
 let computerChoice = () => {
   let choices = Math.floor(Math.random() * 3);
   switch (choices) {
@@ -9,7 +11,6 @@ let computerChoice = () => {
       return "Scissors";
   }
 }
-console.log(computerChoice());
 
 let getHumanChoice = () => {
   let choices = prompt("Enter your choice: Rock, Paper, or Scissors");
@@ -20,7 +21,33 @@ let getHumanChoice = () => {
   }
   return choices;
 }
-console.log(getHumanChoice());
 
-let computerScore = 0;
-let humanScore = 0;
+// Function to determine the winner
+let playRound = (humanChoice, computerChoice) => {
+  if (humanChoice == computerChoice) {
+    return console.log("It's a tie.");
+  } 
+  else if (humanChoice == "Rock" && computerChoice == "Scissors" ||
+           humanChoice == "Scissors" && computerChoice == "Paper" ||
+           humanChoice == "Paper" && computerChoice == "Rock"
+  ) {
+    humanScore++;
+    return console.log(`You win! ${humanChoice} beats ${computerChoice}.`);
+  } else {
+    computerScore++;
+    return console.log(`You lose! ${computerChoice} beats ${humanChoice}.`);
+  }
+}
+
+let playGame = () => {
+  let computerScore = 0;
+  let humanScore = 0;
+
+  const humanSelection = getHumanChoice();
+  const computerSelection = computerChoice();
+
+  if (humanScore < 3 || computerScore < 3 ) {
+    playRound(humanSelection, computerSelection);
+  }
+}
+playGame();
