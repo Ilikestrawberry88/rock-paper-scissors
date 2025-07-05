@@ -1,5 +1,3 @@
-
-
 let computerChoice = () => {
   let choices = Math.floor(Math.random() * 3);
   switch (choices) {
@@ -23,7 +21,12 @@ let getHumanChoice = () => {
 }
 
 // Function to determine the winner
-let playRound = (humanChoice, computerChoice) => {
+let playGame = () => {
+  let computerScore = 0;
+  let humanScore = 0;
+
+  
+  let playRound = (humanChoice, computerChoice) => {
   if (humanChoice == computerChoice) {
     return console.log("It's a tie.");
   } 
@@ -39,15 +42,48 @@ let playRound = (humanChoice, computerChoice) => {
   }
 }
 
-let playGame = () => {
-  let computerScore = 0;
-  let humanScore = 0;
-
+if (computerScore < 5 && humanScore < 5) {
   const humanSelection = getHumanChoice();
   const computerSelection = computerChoice();
+  playRound(humanSelection, computerSelection);
+  console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
 
-  if (humanScore < 3 || computerScore < 3 ) {
-    playRound(humanSelection, computerSelection);
+  if (computerScore < 5 && humanScore < 5) {
+      const humanSelection = getHumanChoice();
+      const computerSelection = computerChoice();
+      playRound(humanSelection, computerSelection);
+      console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
+
+    if (computerScore < 5 && humanScore < 5) {
+      const humanSelection = getHumanChoice();
+      const computerSelection = computerChoice();
+      playRound(humanSelection, computerSelection);
+      console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
+
+      if (computerScore < 5 && humanScore < 5) {
+      const humanSelection = getHumanChoice();
+      const computerSelection = computerChoice();
+      playRound(humanSelection, computerSelection);
+      console.log(`Current Score - You: ${humanScore}, Computer: ${computerScore}`);
+      
+        if (computerScore < 5 && humanScore < 5) {
+          const humanSelection = getHumanChoice();
+          const computerSelection = computerChoice();
+          playRound(humanSelection, computerSelection);
+          console.log(`Final Score - You: ${humanScore}, Computer: ${computerScore}`);
+          if (humanScore > computerScore) {
+            console.log("Congratulations! You win the game!");
+          } else if (humanScore < computerScore) {
+            console.log("Sorry! You lose the game.");
+          } else {
+            console.log("It's a draw!");
+          }
+        }
+      }
+    }
   }
+}
+
+
 }
 playGame();
